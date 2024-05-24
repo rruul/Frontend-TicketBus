@@ -1,13 +1,16 @@
 <template>
-  <v-row justify="center" align="center">
-    Goal
-  </v-row>
+  <div>
+    <RadioTextSection />
+  </div>
 </template>
 
 <script>
 export default {
   name: 'IndexPage',
   auth: false,
-  layout: 'home'
+  layout: 'nav',
+  components: {
+    RadioTextSection: () => import('@/components/UI/BusquedaV.vue')
+  }
 }
 </script>
