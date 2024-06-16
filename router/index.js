@@ -1,55 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import PaginaInicio from '@/pages/Index.vue'
-import PaginaBuscar from '@/pages/Buscar.vue'
-import PaginaDetalleViaje from '@/pages/DetalleViaje.vue'
-import PaginaSeleccionAsiento from '@/pages/SeleccionAsiento.vue'
-import PaginaInformacionUsuario from '@/pages/InformacionUsuario.vue'
-import PaginaResumen from '@/pages/Resumen.vue'
+import HomeView from '../views/HomeView.vue'
+import ViajesView from '../pages/Buscar.vue' // new view for displaying the viajes array
+import ReservarView from '../pages/Reservar.vue' // new view for displaying the viajes array
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'Inicio',
-    component: PaginaInicio
-  },
-  {
-    path: '/buscar',
-    name: 'Buscar',
-    component: PaginaBuscar
-  },
-  {
-    path: '/detalle-viaje/:id',
-    name: 'DetalleViaje',
-    component: PaginaDetalleViaje
-  },
-  {
-    path: '/seleccion-asiento/:id',
-    name: 'SeleccionAsiento',
-    component: PaginaSeleccionAsiento
-  },
-  {
-    path: '/informacion-usuario',
-    name: 'InformacionUsuario',
-    component: PaginaInformacionUsuario
-  },
-  {
-    path: '/resumen',
-    name: 'Resumen',
-    component: PaginaResumen
-  },
-  {
-    path: '*',
-    redirect: '/'
-  }
-]
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: HomeView
+    },
+    {
+      path: '/Buscar',
+      name: 'viajes',
+      component: ViajesView
+    },
+    {
+        path: '/Reservar/:id',
+        name: 'Reservar',
+        component: ReservarView,
+        props: true
+    }
+  ]
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+  const router = new VueRouter({
+    mode: 'history',
+    routes
+  })
 })
 
 export default router

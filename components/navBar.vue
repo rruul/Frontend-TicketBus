@@ -9,9 +9,8 @@
         <li class="navbar-item"><a @click="Beneficios">Beneficios</a></li>
         <li class="navbar-item"><a @click="Servicios">Servicios</a></li>
         <li class="navbar-item"><a @click="Nosotros">Nosotros</a></li>
-        <li class="navbar-item"><a @click="Ayuda">Ayuda</a></li>
-        <v-btn rounded="xl" outlined class="navbar-item">Iniciar sesion</v-btn>
-        <v-btn rounded="xl" outlined class="navbar-item">Registrarse</v-btn>
+        <v-btn rounded="xl" outlined class="navbar-item" @click="login">Iniciar sesion</v-btn>
+        <v-btn rounded="xl" outlined class="navbar-item" @click="Register">Registrarse</v-btn>
       </ul>
     </div>
   </nav>
@@ -32,8 +31,11 @@ export default {
     Nosotros () {
       this.$router.push('/nosotros')
     },
-    Ayuda () {
-      this.$router.push('/ayuda')
+    login () {
+      this.$router.push('/login')
+    },
+    Register () {
+      this.$router.push('/register')
     }
   }
 }
